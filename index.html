@@ -129,17 +129,17 @@
             </div>
         </section>
 
-        <!-- Блок картинок с графиками -->
-        <section class="gallery-section">
+        <!-- Интерактивные графики -->
+        <section id="charts" class="gallery-section">
             <div class="container">
                 <h2 class="text-center">Ваш рост в реальном времени</h2>
                 <div class="gallery-grid">
-                    <div class="placeholder-img chart"><span>График GGR</span></div>
-                    <div class="placeholder-img chart"><span>Аналитика LTV</span></div>
-                    <div class="placeholder-img chart"><span>Рост MAU</span></div>
-                    <div class="placeholder-img chart"><span>ROI по кампаниям</span></div>
-                    <div class="placeholder-img chart"><span>Финансовый отчет</span></div>
-                    <div class="placeholder-img chart"><span>Активность игроков</span></div>
+                    <div class="chart-container"><canvas id="ggrChart"></canvas></div>
+                    <div class="chart-container"><canvas id="ltvChart"></canvas></div>
+                    <div class="chart-container"><canvas id="mauChart"></canvas></div>
+                    <div class="chart-container"><canvas id="roiChart"></canvas></div>
+                    <div class="chart-container"><canvas id="dauChart"></canvas></div>
+                    <div class="chart-container"><canvas id="depositsChart"></canvas></div>
                 </div>
             </div>
         </section>
@@ -397,6 +397,8 @@
 
     <!-- SwiperJS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Chart.js for interactive graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
