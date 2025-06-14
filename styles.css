@@ -184,6 +184,26 @@ h4 { font-size: 22px; margin-bottom: 10px; }
 }
 .hero-content {
     flex: 1;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-content h1,
+.hero-content .subtitle,
+.hero-content .btn {
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .hero-content {
+        text-align: left;
+        margin: 0;
+    }
+    .hero-content h1,
+    .hero-content .subtitle,
+    .hero-content .btn {
+        text-align: left;
+    }
 }
 .hero-content .subtitle {
     font-size: 20px;
