@@ -138,6 +138,13 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         const labels = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн'];
+        const pointStyle = {
+            pointBackgroundColor: '#ffffff',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            pointHoverBorderWidth: 2
+        };
 
         // GGR Chart
         new Chart(document.getElementById('ggrChart'), {
@@ -150,7 +157,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     borderColor: 'rgb(0, 255, 171)',
                     backgroundColor: 'rgba(0, 255, 171, 0.1)',
                     fill: true,
-                    tension: 0.4
+                    tension: 0.4,
+                    ...pointStyle,
+                    pointBorderColor: 'rgb(0, 255, 171)',
+                    pointHoverBackgroundColor: 'rgb(0, 255, 171)'
                 }]
             },
             options: commonOptions
@@ -167,7 +177,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     borderColor: 'rgb(123, 44, 191)',
                     backgroundColor: 'rgba(123, 44, 191, 0.1)',
                     fill: true,
-                    tension: 0.4
+                    tension: 0.4,
+                    ...pointStyle,
+                    pointBorderColor: 'rgb(123, 44, 191)',
+                    pointHoverBackgroundColor: 'rgb(123, 44, 191)'
                 }]
             },
             options: commonOptions
@@ -183,7 +196,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     data: [12500, 14000, 18000, 21000, 25000, 28000],
                     backgroundColor: 'rgba(0, 255, 171, 0.6)',
                     borderColor: 'rgb(0, 255, 171)',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    hoverBackgroundColor: 'rgba(0, 255, 171, 0.8)'
                 }]
             },
             options: commonOptions
@@ -198,8 +212,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     label: 'ROI',
                     data: [150, 220, 180, 250, 310],
                     borderColor: 'rgb(123, 44, 191)',
-                    pointBackgroundColor: '#fff',
-                    pointRadius: 5
+                    ...pointStyle,
+                    pointBorderColor: 'rgb(123, 44, 191)',
+                    pointHoverBackgroundColor: 'rgb(123, 44, 191)'
                 }]
             },
             options: commonOptions
@@ -215,7 +230,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     data: [1200, 1300, 1500, 1450, 1800, 2500, 2200],
                     borderColor: 'rgb(0, 255, 171)',
                     backgroundColor: 'rgba(0, 255, 171, 0.1)',
-                    fill: true
+                    fill: true,
+                    ...pointStyle,
+                    pointBorderColor: 'rgb(0, 255, 171)',
+                    pointHoverBackgroundColor: 'rgb(0, 255, 171)'
                 }]
             },
             options: commonOptions
@@ -231,7 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     data: [450, 500, 620, 580, 710, 850],
                     backgroundColor: 'rgba(123, 44, 191, 0.6)',
                     borderColor: 'rgb(123, 44, 191)',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    hoverBackgroundColor: 'rgba(123, 44, 191, 0.8)'
                 }]
             },
             options: commonOptions
