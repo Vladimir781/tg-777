@@ -29,7 +29,7 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -56,6 +56,7 @@ body {
     display: flex;
     align-items: center;
     color: var(--text-bright-color);
+    transition: transform 0.3s, filter 0.3s;
 }
 .logo .logo-text {
     margin-right: 5px;
@@ -67,18 +68,30 @@ body {
     border-radius: 5px;
     border: 1px solid var(--accent-color);
     overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 .slot-machine span {
     color: var(--green-color);
     text-shadow: 0 0 5px var(--green-color);
 }
-.slot-machine.spin span {
+
+
+.slot-machine span.rolling {
     animation: slot-spin 0.2s linear infinite;
 }
 
 @keyframes slot-spin {
-    from { transform: translateY(-20px); }
-    to { transform: translateY(20px); }
+    from { transform: rotateX(0deg); }
+    to { transform: rotateX(360deg); }
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo:hover .slot-machine {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--accent-color);
 }
 
 
@@ -119,6 +132,7 @@ body {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    white-space: nowrap;
 }
 .btn-primary {
     background-color: transparent;
@@ -331,6 +345,12 @@ h4 { font-size: 22px; margin-bottom: 10px; }
     min-height: 250px;
     padding: 15px;
     position: relative;
+    transition: transform 0.3s;
+}
+
+.chart-container:hover {
+    transform: scale(1.05);
+    z-index: 2;
 }
 
 .chart-container canvas {
