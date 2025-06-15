@@ -3,24 +3,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Функція для ініціалізації всіх скриптів ---
     function initializePageScripts() {
         
-        // 1. Анімація логотипа в шапці
-        const slotMachine = document.querySelector('.logo .slot-machine');
-        if (slotMachine && !slotMachine.hasAttribute('data-animated')) {
-            const digits = slotMachine.querySelectorAll('span');
+        // 1. Анімація логотипа (слот-машина)
+        document.querySelectorAll('.logo .slot-machine').forEach(machine => {
+            if (machine.hasAttribute('data-animated')) return;
+            const digits = machine.querySelectorAll('span');
 
             function spinOnce() {
                 digits.forEach((d, i) => {
-                    setTimeout(() => {
+                    let spins = 10 + i * 5;
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        d.textContent = Math.floor(Math.random() * 10);
                         d.classList.add('spin');
-                        setTimeout(() => d.classList.remove('spin'), 600);
-                    }, i * 200);
+                        setTimeout(() => d.classList.remove('spin'), 500);
+                        if (++count >= spins) {
+                            clearInterval(interval);
+                            d.textContent = '7';
+                        }
+                    }, 70);
                 });
             }
 
             spinOnce();
             setInterval(spinOnce, 10000);
-            slotMachine.setAttribute('data-animated', 'true');
-        }
+            machine.parentElement.addEventListener('mouseenter', spinOnce);
+            machine.setAttribute('data-animated', 'true');
+        });
         
         // 2. Плавна прокрутка для якорних посилань
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

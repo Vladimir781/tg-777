@@ -77,6 +77,14 @@ body {
     animation: slot-spin 0.6s ease-in-out;
 }
 
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo:hover .slot-machine {
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
 @keyframes slot-spin {
     from { transform: rotateX(0deg); }
     to { transform: rotateX(360deg); }
@@ -208,6 +216,16 @@ h4 { font-size: 22px; margin-bottom: 10px; }
     border-radius: 30px;
 }
 
+.desktop-mockup {
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--secondary-color) !important;
+    border: 8px solid #000;
+    border-radius: 12px;
+}
+
 
 /* --- SWIPER CAROUSEL --- */
 .swiper-container {
@@ -224,6 +242,16 @@ h4 { font-size: 22px; margin-bottom: 10px; }
 }
 .swiper-pagination-bullet-active {
     background: var(--accent-color);
+}
+
+.desktop-slide {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .desktop-slide {
+        display: flex;
+    }
 }
 
 
@@ -487,6 +515,7 @@ h4 { font-size: 22px; margin-bottom: 10px; }
 }
 .form-group-checkbox {
     margin-top: 20px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
 }
@@ -522,6 +551,16 @@ h4 { font-size: 22px; margin-bottom: 10px; }
     min-width: 200px;
 }
 .footer-column.footer-about { flex: 2; }
+.footer-column.footer-about .logo {
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 992px) {
+    .footer-column.footer-about {
+        text-align: center;
+    }
+}
 .footer-column h4 {
     color: var(--text-bright-color);
     margin-bottom: 20px;
