@@ -6,10 +6,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // 1. Анімація логотипа в шапці
         const slotMachine = document.querySelector('.logo .slot-machine');
         if (slotMachine && !slotMachine.hasAttribute('data-animated')) {
-            setInterval(() => {
-                slotMachine.classList.add('spin');
-                setTimeout(() => slotMachine.classList.remove('spin'), 1000);
-            }, 10000);
+            const digits = slotMachine.querySelectorAll('span');
+
+            function spinOnce() {
+                digits.forEach((d, i) => {
+                    setTimeout(() => {
+                        d.classList.add('spin');
+                        setTimeout(() => d.classList.remove('spin'), 600);
+                    }, i * 200);
+                });
+            }
+
+            spinOnce();
+            setInterval(spinOnce, 10000);
             slotMachine.setAttribute('data-animated', 'true');
         }
         
@@ -137,7 +146,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
         
-        const labels = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн'];
+        const langCode = document.documentElement.lang || 'ru';
+        const monthLabels = langCode === 'ru'
+            ? ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн']
+            : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        const campaignLabels = langCode === 'ru'
+            ? ['Камп. 1', 'Камп. 2', 'Камп. 3', 'Камп. 4', 'Камп. 5']
+            : ['Campaign 1', 'Campaign 2', 'Campaign 3', 'Campaign 4', 'Campaign 5'];
+        const dayLabels = langCode === 'ru'
+            ? ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+            : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        const labels = monthLabels;
+        const depositsLabel = langCode === 'ru' ? 'Количество депозитов' : 'Deposits Count';
         const pointStyle = {
             pointBackgroundColor: '#ffffff',
             pointBorderWidth: 2,
@@ -207,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
         new Chart(document.getElementById('roiChart'), {
             type: 'line',
             data: {
-                labels: ['Камп. 1', 'Камп. 2', 'Камп. 3', 'Камп. 4', 'Камп. 5'],
+                labels: campaignLabels,
                 datasets: [{
                     label: 'ROI',
                     data: [150, 220, 180, 250, 310],
@@ -224,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
         new Chart(document.getElementById('dauChart'), {
             type: 'line',
             data: {
-                labels: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+                labels: dayLabels,
                 datasets: [{
                     label: 'DAU',
                     data: [1200, 1300, 1500, 1450, 1800, 2500, 2200],
@@ -245,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Deposits Count',
+                    label: depositsLabel,
                     data: [450, 500, 620, 580, 710, 850],
                     backgroundColor: 'rgba(123, 44, 191, 0.6)',
                     borderColor: 'rgb(123, 44, 191)',
