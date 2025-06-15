@@ -8,25 +8,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (machine.hasAttribute('data-animated')) return;
             const digits = machine.querySelectorAll('span');
 
-            function spinOnce() {
+            function dropOnce() {
                 digits.forEach((d, i) => {
-                    let spins = 10 + i * 5;
-                    let count = 0;
-                    const interval = setInterval(() => {
-                        d.textContent = Math.floor(Math.random() * 10);
-                        d.classList.add('spin');
-                        setTimeout(() => d.classList.remove('spin'), 500);
-                        if (++count >= spins) {
-                            clearInterval(interval);
-                            d.textContent = '7';
-                        }
-                    }, 70);
+                    d.textContent = '7';
+                    d.classList.remove('drop');
+                    void d.offsetWidth; // restart animation
+                    setTimeout(() => d.classList.add('drop'), i * 150);
                 });
             }
 
-            spinOnce();
-            setInterval(spinOnce, 10000);
-            machine.parentElement.addEventListener('mouseenter', spinOnce);
+            dropOnce();
+            setInterval(dropOnce, 10000);
+            machine.parentElement.addEventListener('mouseenter', dropOnce);
             machine.setAttribute('data-animated', 'true');
         });
         

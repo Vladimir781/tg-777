@@ -71,10 +71,15 @@ body {
 .slot-machine span {
     color: var(--green-color);
     text-shadow: 0 0 5px var(--green-color);
+    display: inline-block;
 }
 
 .slot-machine span.spin {
     animation: slot-spin 0.6s ease-in-out;
+}
+
+.slot-machine span.drop {
+    animation: slot-drop 0.6s ease-out forwards;
 }
 
 .logo:hover {
@@ -88,6 +93,12 @@ body {
 @keyframes slot-spin {
     from { transform: rotateX(0deg); }
     to { transform: rotateX(360deg); }
+}
+
+@keyframes slot-drop {
+    0% { transform: translateY(-150%); }
+    80% { transform: translateY(10%); }
+    100% { transform: translateY(0); }
 }
 
 
