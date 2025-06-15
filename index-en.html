@@ -129,17 +129,17 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section class="gallery-section">
+        <!-- Interactive Charts -->
+        <section id="charts" class="gallery-section">
             <div class="container">
                 <h2 class="text-center">Your Growth in Real Time</h2>
                 <div class="gallery-grid">
-                    <div class="placeholder-img chart"><span>GGR Chart</span></div>
-                    <div class="placeholder-img chart"><span>LTV Analytics</span></div>
-                    <div class="placeholder-img chart"><span>MAU Growth</span></div>
-                    <div class="placeholder-img chart"><span>Campaign ROI</span></div>
-                    <div class="placeholder-img chart"><span>Financial Report</span></div>
-                    <div class="placeholder-img chart"><span>Player Activity</span></div>
+                    <div class="chart-container"><canvas id="ggrChart"></canvas></div>
+                    <div class="chart-container"><canvas id="ltvChart"></canvas></div>
+                    <div class="chart-container"><canvas id="mauChart"></canvas></div>
+                    <div class="chart-container"><canvas id="roiChart"></canvas></div>
+                    <div class="chart-container"><canvas id="dauChart"></canvas></div>
+                    <div class="chart-container"><canvas id="depositsChart"></canvas></div>
                 </div>
             </div>
         </section>
@@ -397,6 +397,8 @@
     
     <!-- SwiperJS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Chart.js for interactive graphs -->
+    <script src="chart.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
