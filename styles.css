@@ -117,6 +117,8 @@ body {
 .header-actions {
     display: flex;
     align-items: center;
+    margin-left: auto;
+    gap: 10px;
 }
 
 .lang-switcher a {
